@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
-class ListAnimation extends StatelessWidget {
+class ListAnimation extends StatefulWidget {
   const ListAnimation({super.key});
+
+  @override
+  State<ListAnimation> createState() => _ListAnimationState();
+}
+
+class _ListAnimationState extends State<ListAnimation> {
+  late AnimationController controller;
 
   @override
   Widget build(BuildContext context) {

@@ -37,11 +37,11 @@ class _LoginScreenAnimationState extends State<LoginScreenAnimation>
 
     controller.forward();
 
-    logoFadeAnimation.addListener(() {
+    /* logoFadeAnimation.addListener(() {
       if (logoFadeAnimation.isCompleted) {
         controller.reverse();
       }
-    });
+    }); */
   }
 
   @override
