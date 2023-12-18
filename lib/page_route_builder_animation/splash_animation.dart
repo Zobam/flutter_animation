@@ -7,14 +7,17 @@ class SplashAnimation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Container(
-          width: 100,
-          height: 100,
-          decoration: const BoxDecoration(
-            color: Colors.blue,
-            shape: BoxShape.circle,
-          ),
+        child: GestureDetector(
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => Destination(),
+              ),
+            );
+          },
           child: Container(
+            width: 100,
+            height: 100,
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
               color: Colors.blue,
