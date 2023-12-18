@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class SplashAnimation extends StatefulWidget {
@@ -30,6 +32,9 @@ class _SplashAnimationState extends State<SplashAnimation>
             builder: (context) => const Destination(),
           ),
         );
+        Timer(const Duration(milliseconds: 500), () {
+          controller.reset();
+        });
       }
     });
   }
