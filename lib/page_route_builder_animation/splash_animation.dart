@@ -28,8 +28,8 @@ class _SplashAnimationState extends State<SplashAnimation>
     controller.addListener(() {
       if (controller.isCompleted) {
         Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => const Destination(),
+          MyCustomRouteTransition(
+            route: const Destination(),
           ),
         );
         Timer(const Duration(milliseconds: 500), () {
@@ -79,6 +79,44 @@ class Destination extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Go Back'),
       ),
+      body: Center(
+        child: Container(
+          padding: const EdgeInsets.all(4),
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.all(
+              Radius.circular(4),
+            ),
+          ),
+          child: const Text(
+            'All hail the King of all days!',
+            style: TextStyle(
+              fontSize: 26,
+            ),
+          ),
+        ),
+      ),
     );
   }
+}
+
+class MyCustomRouteTransition extends PageRouteBuilder {
+  final Widget route;
+
+  MyCustomRouteTransition({required this.route})
+      : super(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return route;
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            final tween =
+                Tween(begin: const Offset(4, 0), end: Offset.zero).animate(
+              CurvedAnimation(parent: animation, curve: Curves.bounceInOut),
+            );
+            return SlideTransition(
+              position: tween,
+              child: child,
+            );
+          },
+        );
 }
